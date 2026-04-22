@@ -191,7 +191,6 @@ body {
     transform: translateY(-2px);
 }
 
-
 .hero-right {
     flex-shrink: 0;
 }
@@ -234,37 +233,21 @@ section h2 {
     border-top: 1px solid var(--border);
 }
 
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+/* ── About Essay ── */
+.about-essay {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 680px;
 }
 
-.info-card {
-    background-color: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.4rem 1.6rem;
-}
-
-.info-card--full {
-    grid-column: 1 / -1;
-}
-
-.info-card .label {
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+.about-essay p {
+    font-size: 1rem;
     color: var(--muted);
-    margin-bottom: 0.3rem;
+    line-height: 1.9;
 }
 
-.info-card .value {
-    font-size: 0.98rem;
-    font-weight: 500;
-    color: var(--text);
-}
-
+/* ── Education ── */
 .timeline {
     display: flex;
     flex-direction: column;
@@ -299,6 +282,7 @@ section h2 {
     color: var(--muted);
 }
 
+/* ── Skills ── */
 .skills-list {
     display: flex;
     flex-direction: column;
@@ -345,55 +329,74 @@ section h2 {
     flex-shrink: 0;
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+/* ── Projects ── */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
 }
 
-.gallery-item {
-    aspect-ratio: 1;
-    border-radius: var(--radius);
-    overflow: hidden;
+.project-card {
     background-color: var(--card);
     border: 1px solid var(--border);
-    position: relative;
+    border-left: 3px solid var(--accent2);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1.6rem 1.8rem;
+    transition: border-color 0.2s;
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
+.project-card:hover {
+    border-color: var(--accent);
 }
 
-.gallery-item:hover img {
-    transform: scale(1.08);
+.project-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
 }
 
-.gallery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(13, 15, 20, 0.92), transparent);
+.project-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 0.25rem;
+}
+
+.project-title {
+    font-size: 1.05rem;
+    font-weight: 600;
     color: var(--text);
-    padding: 1.2rem 1rem 0.9rem;
-    transform: translateY(100%);
-    transition: transform 0.35s ease;
 }
 
-.gallery-overlay p {
+.project-link {
+    display: inline-block;
+    flex-shrink: 0;
     font-size: 0.82rem;
-    line-height: 1.4;
-    color: var(--text);
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent-border);
+    background-color: var(--accent-soft);
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    transition: background-color 0.2s, color 0.2s;
+    white-space: nowrap;
 }
 
-.gallery-item:hover .gallery-overlay {
-    transform: translateY(0);
+.project-link:hover {
+    background-color: var(--accent);
+    color: var(--bg);
 }
 
+.project-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* ── Contact ── */
 .contact-links {
     display: flex;
     flex-direction: column;
@@ -452,6 +455,7 @@ section h2 {
     color: var(--bg);
 }
 
+/* ── Footer ── */
 footer {
     text-align: center;
     padding: 2rem;
@@ -461,6 +465,7 @@ footer {
     font-family: var(--font-mono);
 }
 
+/* ── Responsive ── */
 @media (max-width: 768px) {
     #Home {
         flex-direction: column-reverse;
@@ -472,12 +477,11 @@ footer {
     .hero-desc { text-align: center; }
     .hero-img-wrap { width: 220px; height: 220px; }
     .navbar { min-width: unset; width: 92%; }
+    .project-top { flex-direction: column; gap: 0.6rem; }
 }
 
 @media (max-width: 640px) {
     .navbar ul { gap: 0.5rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; }
     .skill-note { display: none; }
     .skill-name { width: 160px; }
 }
